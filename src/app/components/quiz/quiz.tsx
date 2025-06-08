@@ -14,7 +14,7 @@ import {
 } from "./styles";
 
 interface QuizProps {
-  onGoFurther: (givenResponse: string) => void;
+  onGoFurther?: (givenResponse: string) => void;
   level?: LevelModel;
   showRightResponse?: boolean;
   preSettedGivenResponse?: string;
@@ -82,7 +82,7 @@ export default function Quiz({
         </AnswersContainer>
       </QuizCard>
 
-      {!showRightResponse && (
+      {!showRightResponse && onGoFurther && (
         <NextButtonContainer>
           <NextButton
             disabled={givenResponse === null}
