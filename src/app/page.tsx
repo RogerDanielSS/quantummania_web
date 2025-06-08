@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <>
       <div className="min-h-screen bg-[url('/background-landingpage.jpg')] bg-cover bg-center bg-no-repeat">
-        <Header />
         <h1 className="text-[100px] text-white text-center pt-[325px] text-stroke">
           Quantummania
         </h1>
@@ -55,45 +54,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div>
-        <h1 className="text-white text-[40px] pt-6 pl-4 mb-0">
-          Feitos pela comunidade
-        </h1>
-        <div className="w-128 h-px bg-white my-4 mt-0 pb-0.5 mb-6 ml-4"></div>
-      </div>
-      <div>
-        <div className="bg-[radial-gradient(circle_at_top_right,_#35546E_0%,_#374F66_70%,_#3E3F4C_100%)] ml-10 mr-10 rounded-lg">
-          <div className="max-w-4xl mx-auto p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-              <CardComunidade
-                tituloCard="Chips Quânticos"
-                backgroundImage="/chips-quanticos.jpg"
-                descricaoCard="Lorem ipsum dolor sit amet..."
-              />
-              <CardComunidade
-                tituloCard="Inteligência Artificial"
-                backgroundImage="/inteligencia-artificial.png"
-                descricaoCard="Lorem ipsum dolor sit amet..."
-              />
-              <CardComunidade
-                tituloCard="Ciência Quântica"
-                backgroundImage="/ciencia-quantica.png"
-                descricaoCard="Lorem ipsum dolor sit amet..."
-              />
-              <CardComunidade
-                tituloCard="Exploração Espacial"
-                backgroundImage="/exploracao-espacial.jpg"
-                descricaoCard="Lorem ipsum dolor sit amet..."
-              />
-            </div>
-            <div className="flex justify-center">
-              <div className="bg-[radial-gradient(circle_at_right,_#121F2F_44%,_#50A1E4_100%)] text-center border-t border-gray-600 text-white w-64 p-2 rounded-lg">
-                <p className="font-bold">Saiba mais</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <div>
         <h1 className="text-white text-[40px] pt-6 pl-4 mb-0">
           Quem somos nós
