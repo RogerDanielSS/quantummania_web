@@ -68,11 +68,7 @@ export default function Home() {
           />
         )}
         {game && currentLevelIndex >= game.levels.length && (
-          <Score
-            game={game}
-            givenResponses={givenResponses}
-            onGoFurther={onGoFurther}
-          />
+          <Score game={game} givenResponses={givenResponses} />
         )}
       </main>
     </div>
