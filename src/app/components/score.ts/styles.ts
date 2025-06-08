@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 // Styled components
-export const ExplanationContainer = styled.div`
+export const Container = styled.div`
   background-color: #f5e7e7;
   min-height: 100vh;
   padding: 55px 3rem 3rem;
@@ -20,6 +20,12 @@ export const Header = styled.div`
 export const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 600;
+`;
+
+
+export const CorrectAnswerRate = styled.h2`
+  font-size: 2rem;
+  font-weight: 700;
 `;
 
 export const ContentCard = styled.div`

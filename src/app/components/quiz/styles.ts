@@ -1,5 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
+import styled, { keyframes } from "styled-components";
 
 // Animations
 const fadeIn = keyframes`
@@ -7,11 +6,14 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
+interface QuizContainerProps {
+  $isSubPage?: boolean;
+}
 // Styled components
-export const QuizContainer = styled.div`
+export const QuizContainer = styled.div<QuizContainerProps>`
   background-color: #f5e7e7;
-  min-height: 100vh;
-  padding: 55px 3rem 3rem;
+  min-height: ${(props) => (props?.$isSubPage ? "auto" : "100vh")};
+  padding: ${(props) => (props?.$isSubPage ? "0 3rem" : "55px 3rem 3rem")};
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -65,14 +67,35 @@ export const AnswerButton = styled.button<AnswerButtonProps>`
   padding: 0.75rem 1.5rem;
   border-radius: 0.375rem;
   cursor: pointer;
-  background-color: ${props => props.$isSelected ? '#1e3a8a;' : 'rgb(209, 213, 219)'};
+  background-color: ${(props) =>
+    props.$isSelected ? "#1e3a8a;" : "rgb(209, 213, 219)"};
   transition: background-color 0.2s ease;
   border: none;
   font-size: 1rem;
 
   &:hover {
-    background-color: ${props => props.$isSelected ? '#1e3a8a;' : 'rgb(156, 163, 175)'};
+    background-color: ${(props) =>
+      props.$isSelected ? "#1e3a8a;" : "rgb(156, 163, 175)"};
   }
+`;
+
+interface ExplicitResponseDivProps {
+  $isRightResponse?: boolean;
+  $isGivenResponse?: boolean;
+}
+
+export const ExplicitResponseDiv = styled.div<ExplicitResponseDivProps>`
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  background-color: ${(props) =>
+    props.$isRightResponse
+      ? "rgb(22 163 74)"
+      : props.$isGivenResponse
+      ? "red"
+      : "rgb(209, 213, 219)"};
+  transition: background-color 0.2s ease;
+  border: none;
+  font-size: 1rem;
 `;
 
 export const NextButtonContainer = styled.div`
