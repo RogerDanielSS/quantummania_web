@@ -1,34 +1,38 @@
+"use client";
+
 import Link from "next/link";
-import CardComunidade from "./components/cardComunidade";
 import Card from "./components/cardTutorial";
-import Header from "./components/header";
 import MembroEquipe from "./components/membroEquipe";
+import {
+  HeroSection,
+  MainTitle,
+  Subtitle,
+  SectionTitle,
+  Divider,
+  TutorialSection,
+  CardsContainer,
+  TeamSection,
+} from "./styles";
 
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen bg-[url('/background-landingpage.jpg')] bg-cover bg-center bg-no-repeat">
-        <h1 className="text-[100px] text-white text-center pt-[325px] text-stroke">
-          Quantummania
-        </h1>
-        <h2 className="text-white text-justify font-light leading-relaxed tracking-wide max-w-lg ml-auto mr-20 mt-12 px-4 text-[18px]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          pharetra semper mollis. Fusce tortor neque, malesuada rhoncus tortor
-          sed, ullamcorper malesuada quam. Etiam aliquet enim leo, eget euismod
-          arcu ultricies nec. Etiam accumsan pretium odio vitae sodales. Fusce
-          hendrerit mollis eros nec vehicula.
-        </h2>
-      </div>
+      <HeroSection>
+        <MainTitle>Quantummania</MainTitle>
+        <Subtitle>
+          Um site para aprendizagem de circuitos quânticos feito de estudantes
+          para estudantes
+        </Subtitle>
+      </HeroSection>
+
       <div>
         <div>
-          <h1 className="text-white text-[40px] pt-6 pl-4 mb-0">Tutorial</h1>
-          <div className="w-64 h-px bg-white my-4 mt-0 pb-0.5 mb-6 ml-4"></div>
+          <SectionTitle>Tutorial</SectionTitle>
+          <Divider />
         </div>
-        <div className="w-full bg-[url('/background-tutorial.png')] bg-cover bg-center bg-no-repeat rounded-lg">
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-10 p-6 md:p-8 lg:p-10">
-            <Link
-              href="/gameplay"
-            >
+        <TutorialSection>
+          <CardsContainer>
+            <Link href="/gameplay">
               <Card
                 numeroCard="01"
                 nivelCard="Básico"
@@ -51,17 +55,15 @@ export default function Home() {
                             Pellentesque pharetra semper mollis.Fusce tortor neque, 
                             malesuada rhoncus tortor sed, ullamcorper malesuada quam."
             />
-          </div>
-        </div>
+          </CardsContainer>
+        </TutorialSection>
       </div>
 
       <div>
-        <h1 className="text-white text-[40px] pt-6 pl-4 mb-0">
-          Quem somos nós
-        </h1>
-        <div className="w-128 h-px bg-white my-4 mt-0 pb-0.5 mb-6 ml-4"></div>
+        <SectionTitle>Quem somos nós</SectionTitle>
+        <Divider style={{ width: "32rem" }} />
       </div>
-      <div className="bg-[radial-gradient(circle_at_top_right,_#35546E_0%,_#374F66_70%,_#3E3F4C_100%)] ml-10 mr-10 rounded-lg grid grid-cols-4">
+      <TeamSection>
         <MembroEquipe
           nomeMembro="Estêvão"
           githubUrl="https://github.com/Txtravos"
@@ -102,7 +104,7 @@ export default function Home() {
           githubUrl="https://github.com/Txtravos"
           linkedinUrl="https://www.linkedin.com/in/estevaoviana/"
         />
-      </div>
+      </TeamSection>
     </>
   );
 }
