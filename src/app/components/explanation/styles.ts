@@ -58,16 +58,21 @@ export const ButtonContainer = styled.div`
 `;
 
 export const NextButton = styled.button`
-  background-color: #16a34a; /* bg-green-600 */
+  background-color: rgb(22 163 74);
   color: white;
-  padding: 0.5rem 1rem; /* px-4 py-2 */
+  padding: 0.5rem 1rem;
   border-radius: 24px;
   cursor: pointer;
   font-weight: 600;
   border: none;
   transition: opacity 0.2s ease;
 
-  &:hover {
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
     opacity: 0.9;
   }
 `;
