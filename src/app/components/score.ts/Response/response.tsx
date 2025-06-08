@@ -41,7 +41,6 @@ export default function Response({
           level={level}
           showRightResponse
           preSettedGivenResponse={givenResponse.reponse}
-          onGoFurther={(): void => console.log("further")}
         />
       )}
     </>
