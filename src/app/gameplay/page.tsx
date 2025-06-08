@@ -37,8 +37,6 @@ export default function Home() {
     setGame(TUTORIAL_LEVEL_1);
   }, []);
 
-  console.log(givenResponses);
-
   useEffect(() => {
     if (game) {
       const EMPTY_SCORE = {
