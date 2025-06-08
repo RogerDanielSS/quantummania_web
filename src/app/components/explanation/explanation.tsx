@@ -40,7 +40,7 @@ export default function Explanation({ level, onGoFurther }: ExplanationProps) {
       </ContentCard>
 
       <ButtonContainer>
-        <NextButton onClick={onGoFurther}>Avançar</NextButton>
+        <NextButton onClick={(): void => onGoFurther()}>Avançar</NextButton>
       </ButtonContainer>
     </ExplanationContainer>
   );
