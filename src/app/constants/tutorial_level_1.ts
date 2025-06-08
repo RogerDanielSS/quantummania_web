@@ -39,14 +39,5 @@ export const TUTORIAL_LEVEL_1: GameModel = {
         correct_response: "|0⟩",
       },
     },
-    {
-      title: "Interferência",
-      content: {
-        type: "quiz",
-        text: "|0⟩ — [H] — [H] — ?",
-        possible_responses: ["|0⟩", "|1⟩", "-|1⟩", "1/√2|0⟩"],
-        correct_response: "|0⟩",
-      },
-    },
   ],
 };

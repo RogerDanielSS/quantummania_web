@@ -2,22 +2,21 @@
 
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { GameModel, GivenResponsesModel } from "../models";
+import { GameModel, GivenResponseModel } from "../models";
 import { TUTORIAL_LEVEL_1 } from "../constants/tutorial_level_1";
 import Quiz from "../components/quiz/quiz";
 import Explanation from "../components/explanation/explanation";
 import Navbar from "../components/navBar/navBar";
+import Score from "../components/score.ts/score";
 
 export default function Home() {
   const [game, setGame] = useState<GameModel>();
   const [currentLevelIndex, setCurrentLevelIndex] = useState<number>(0);
-  const [givenResponses, setGivenResponses] = useState<GivenResponsesModel[]>(
+  const [givenResponses, setGivenResponses] = useState<GivenResponseModel[]>(
     []
   );
 
   const onGoFurther = (givenResponse?: string): void => {
-    console.log("givenResponse");
-    console.log(givenResponse);
     if (givenResponse)
       setGivenResponses(
         givenResponses.concat([
@@ -30,8 +29,6 @@ export default function Home() {
     setCurrentLevelIndex(currentLevelIndex + 1);
   };
 
-  console.log(givenResponses);
-
   const onGoBack = (): void => {
     if (currentLevelIndex > 0) setCurrentLevelIndex(currentLevelIndex - 1);
   };
@@ -39,6 +36,8 @@ export default function Home() {
   useEffect(() => {
     setGame(TUTORIAL_LEVEL_1);
   }, []);
+
+  console.log(givenResponses);
 
   useEffect(() => {
     if (game) {
@@ -67,6 +66,13 @@ export default function Home() {
         {game?.levels[currentLevelIndex]?.content?.type === "quiz" && (
           <Quiz
             level={game?.levels[currentLevelIndex]}
+            onGoFurther={onGoFurther}
+          />
+        )}
+        {game && currentLevelIndex >= game.levels.length && (
+          <Score
+            game={game}
+            givenResponses={givenResponses}
             onGoFurther={onGoFurther}
           />
         )}

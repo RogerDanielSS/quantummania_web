@@ -1,8 +1,8 @@
 import { GameModel } from "./game";
-import { GivenResponsesModel } from "./given_responses";
+import { GivenResponseModel } from "./given_response";
 
 export type ScoreModel = {
-    currentLevelIndex: number,
-    game: GameModel,
-    givenResponses?: GivenResponsesModel[]
+  currentLevelIndex: number;
+  game: GameModel;
+  givenResponses?: GivenResponseModel[];
 };
