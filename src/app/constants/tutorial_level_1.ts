@@ -3,6 +3,7 @@ import qubits from "@/app/assets/qubits.png";
 
 export const TUTORIAL_LEVEL_1: GameModel = {
   title: "Básico",
+  description: "Familiarização com conceitos de computação quântica",
   levels: [
     {
       title: "Bits quânticos",

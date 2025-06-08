@@ -10,7 +10,7 @@ export const MainTitle = styled.h1`
   color: white;
   font-size: 100px;
   text-align: center;
-  padding-top: 325px;
+  padding-top: 35vh;
   margin: 0;
 `;
 

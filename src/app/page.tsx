@@ -13,6 +13,7 @@ import {
   CardsContainer,
   TeamSection,
 } from "./styles";
+import { TUTORIAL_LEVEL_1 } from "./constants/tutorial_level_1";
 
 export default function Home() {
   return (
@@ -36,25 +37,23 @@ export default function Home() {
               <Card
                 numeroCard="01"
                 nivelCard="Básico"
-                descricaoCard="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Pellentesque pharetra semper mollis. Fusce tortor neque, 
-                            malesuada rhoncus tortor sed, ullamcorper malesuada quam."
+                descricaoCard={TUTORIAL_LEVEL_1.description}
               />
             </Link>
-            <Card
-              numeroCard="02"
-              nivelCard="Intermediário"
-              descricaoCard="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Pellentesque pharetra semper mollis. Fusce tortor neque, 
-                            malesuada rhoncus tortor sed, ullamcorper malesuada quam."
-            />
-            <Card
-              numeroCard="03"
-              nivelCard="Avançado"
-              descricaoCard="Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Pellentesque pharetra semper mollis.Fusce tortor neque, 
-                            malesuada rhoncus tortor sed, ullamcorper malesuada quam."
-            />
+            <Link href="/gameplay">
+              <Card
+                numeroCard="02"
+                nivelCard="Básico"
+                descricaoCard={TUTORIAL_LEVEL_1.description}
+              />
+            </Link>
+            <Link href="/gameplay">
+              <Card
+                numeroCard="03"
+                nivelCard="Básico"
+                descricaoCard={TUTORIAL_LEVEL_1.description}
+              />
+            </Link>
           </CardsContainer>
         </TutorialSection>
       </div>
