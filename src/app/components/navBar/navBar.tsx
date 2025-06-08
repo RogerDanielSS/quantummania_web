@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Nav,
   NavLeft,
@@ -12,13 +13,14 @@ export default function Navbar() {
   return (
     <Nav>
       <NavLeft>
-        <Logo>HOME</Logo>
-        <NavLink href="#">Sobre Nós</NavLink>
+        <Link href="/">
+          {" "}
+          <Logo>HOME</Logo>
+        </Link>
+
+        {/* <NavLink href="#">Sobre Nós</NavLink> */}
       </NavLeft>
-      <NavRight>
-        <SearchInput type="text" placeholder="🔍" />
-        <LoginButton>Login</LoginButton>
-      </NavRight>
+      <NavRight>{/* <LoginButton>Login</LoginButton> */}</NavRight>
     </Nav>
   );
 }
