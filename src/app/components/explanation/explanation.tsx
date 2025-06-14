@@ -2,7 +2,16 @@
 
 import Image from "next/image";
 import { ExplanationModel, LevelModel } from "../../models";
-import { ButtonContainer, ContentCard, ExplanationContainer, Header, ImageContainer, NextButton, TextContent, Title } from "./styles";
+import {
+  ButtonContainer,
+  ContentCard,
+  ExplanationContainer,
+  Header,
+  ImageContainer,
+  NextButton,
+  TextContent,
+  Title,
+} from "./styles";
 
 interface ExplanationProps {
   onGoFurther: () => void;
@@ -30,13 +39,15 @@ export default function Explanation({ level, onGoFurther }: ExplanationProps) {
           </p>
         </TextContent>
 
-        <ImageContainer>
-          <Image
-            src={(level?.content as ExplanationModel)?.img_src || ""}
-            alt="Qubit state 0"
-            height={100}
-          />
-        </ImageContainer>
+        {level?.content?.img_src && (
+          <ImageContainer>
+            <Image
+              src={level?.content?.img_src}
+              alt="Qubit state 0"
+              height={100}
+            />
+          </ImageContainer>
+        )}
       </ContentCard>
 
       <ButtonContainer>

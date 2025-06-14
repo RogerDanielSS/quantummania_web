@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import { LevelModel, QuizModel } from "../../models";
 import {
   AnswerButton,
@@ -6,10 +7,13 @@ import {
   Content,
   ExplicitResponseDiv,
   Header,
+  ImageContainer,
   NextButton,
   NextButtonContainer,
   QuizCard,
   QuizContainer,
+  TextContainer,
+  Text,
   Title,
 } from "./styles";
 
@@ -38,16 +42,28 @@ export default function Quiz({
 
       <QuizCard>
         <Content>
-          <p>
-            {((level?.content as QuizModel)?.text || "")
-              .split("\n")
-              .map((line, i) => (
-                <span key={i}>
-                  {line}
-                  <br />
-                </span>
-              ))}
-          </p>
+          <TextContainer>
+            <Text>
+              {((level?.content as QuizModel)?.text || "")
+                .split("\n")
+                .map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
+            </Text>
+          </TextContainer>
+
+          {level?.content?.img_src && (
+            <ImageContainer>
+              <Image
+                src={level?.content?.img_src}
+                alt="Qubit state 0"
+                height={100}
+              />
+            </ImageContainer>
+          )}
         </Content>
 
         <AnswersContainer>

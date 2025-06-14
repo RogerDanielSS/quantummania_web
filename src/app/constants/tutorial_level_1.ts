@@ -1,5 +1,7 @@
 import { GameModel } from "../models";
 import qubits from "@/app/assets/qubits.png";
+import usePauliZ from "@/app/assets/use-pauli-z.png";
+import useHadamard from "@/app/assets/use-hadamard.png";
 
 export const TUTORIAL_LEVEL_1: GameModel = {
   title: "Básico",
@@ -17,27 +19,20 @@ export const TUTORIAL_LEVEL_1: GameModel = {
       title: "Interferência",
       content: {
         type: "quiz",
-        text: "|0⟩ — [H] — [H] — ?",
+        text: "Qual o estado resultante de utilizar duas portas Hadamard sobre o estado |0⟩?",
+        img_src: useHadamard,
         possible_responses: ["|0⟩", "|1⟩", "-|1⟩", "1/√2|0⟩"],
         correct_response: "|0⟩",
       },
     },
     {
-      title: "Interferência",
+      title: "Utilização da porta Pauli Z",
       content: {
         type: "quiz",
-        text: "|0⟩ — [H] — [H] — ?",
-        possible_responses: ["|0⟩", "|1⟩", "-|1⟩", "1/√2|0⟩"],
-        correct_response: "|0⟩",
-      },
-    },
-    {
-      title: "Interferência",
-      content: {
-        type: "quiz",
-        text: "|0⟩ — [H] — [H] — ?",
-        possible_responses: ["|0⟩", "|1⟩", "-|1⟩", "1/√2|0⟩"],
-        correct_response: "|0⟩",
+        img_src: usePauliZ,
+        text: 'Como a porta Z modifica o estado |1⟩?',
+        possible_responses: ["Mantem o mesmo estado", "Transforma em |0⟩", "Transforma em -|1⟩", "Cria uma superposição"],
+        correct_response: "Transforma em -|1⟩",
       },
     },
   ],

@@ -27,7 +27,7 @@ export const ContentCard = styled.div`
   border-radius: 1rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  height: 60vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   gap: 4rem;

@@ -36,7 +36,7 @@ export const QuizCard = styled.div`
   background-color: white;
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  height: 60vh;
+  height: 70vh;
 `;
 
 export const Content = styled.div`
@@ -49,6 +49,26 @@ export const Content = styled.div`
   font-size: 1.125rem;
   line-height: 1.75rem;
   padding: 2rem;
+`;
+
+export const TextContainer = styled.div`
+  display: flex;
+  height: 50%;
+  width: 100%;
+  gap: 1.5rem;
+  padding: 1rem;
+`;
+
+export const Text = styled.p`
+  font-weight: 550;
+  font-size: 20px;
+`;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
 `;
 
 export const AnswersContainer = styled.div`
