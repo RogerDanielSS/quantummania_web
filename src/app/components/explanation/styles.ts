@@ -30,8 +30,8 @@ export const ContentCard = styled.div`
   height: 70vh;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-  justify-content: center;
+  gap: 1rem;
+  /* justify-content: center; */
   padding: 2rem 3rem;
 `;
 

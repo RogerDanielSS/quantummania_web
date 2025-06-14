@@ -48,6 +48,42 @@ export default function Explanation({ level, onGoFurther }: ExplanationProps) {
             />
           </ImageContainer>
         )}
+
+        <TextContent>
+          <p>
+            {((level?.content as ExplanationModel)?.second_text || "")
+              .split("\n")
+              .map((line, i) => (
+                <span key={i}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+          </p>
+        </TextContent>
+
+        {(level?.content as ExplanationModel)?.second_img_src && (
+          <ImageContainer>
+            <Image
+              src={(level.content as ExplanationModel).second_img_src!}
+              alt="Qubit state 0"
+              height={100}
+            />
+          </ImageContainer>
+        )}
+
+        <TextContent>
+          <p>
+            {((level?.content as ExplanationModel)?.third_text || "")
+              .split("\n")
+              .map((line, i) => (
+                <span key={i}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+          </p>
+        </TextContent>
       </ContentCard>
 
       <ButtonContainer>
