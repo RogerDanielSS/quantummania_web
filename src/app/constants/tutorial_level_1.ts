@@ -53,6 +53,10 @@ export const TUTORIAL_LEVEL_1: GameModel = {
           "Cria uma superposição",
         ],
         correct_response: "|1⟩",
+        response_justification: {
+          first_text: 'Paulli X inverte o estado de |0⟩, conforme a multiplicação de matrizes abaixo',
+          img_src: pauliXTo0,
+        }
       },
     },
     {

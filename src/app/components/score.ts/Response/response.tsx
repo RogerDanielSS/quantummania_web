@@ -4,6 +4,7 @@ import { useState } from "react";
 import { GivenResponseModel, LevelModel, QuizModel } from "../../../models";
 import { CenteredDiv, Container } from "./styles";
 import Quiz from "../../quiz/quiz";
+import ResponseJustification from "../../responseJustification/responseJustification";
 
 interface ResponseProps {
   givenResponse: GivenResponseModel;
@@ -37,11 +38,20 @@ export default function Response({
         <CenteredDiv>{givenResponse.reponse}</CenteredDiv>
       </Container>
       {showQuiz && (
-        <Quiz
-          level={level}
-          showRightResponse
-          preSettedGivenResponse={givenResponse.reponse}
-        />
+        <>
+          <Quiz
+            level={level}
+            showRightResponse
+            preSettedGivenResponse={givenResponse.reponse}
+          />
+          {(level?.content as QuizModel)?.response_justification && (
+            <ResponseJustification
+              justification={
+                (level?.content as QuizModel)?.response_justification
+              }
+            />
+          )}
+        </>
       )}
     </>
   );
