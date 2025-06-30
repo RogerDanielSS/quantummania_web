@@ -1,16 +1,19 @@
 "use client";
 
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GameModel, GivenResponseModel } from "../models";
 import { TUTORIAL_LEVEL_1 } from "../constants/tutorial_level_1";
 import Quiz from "../components/quiz/quiz";
 import Explanation from "../components/explanation/explanation";
 import Navbar from "../components/navBar/navBar";
 import Score from "../components/score.ts/score";
+import { GameContext } from "../contexts";
 
 export default function Home() {
-  const [game, setGame] = useState<GameModel>();
+  const { currentGame } = useContext(GameContext);
+  console.log(currentGame);
+
   const [currentLevelIndex, setCurrentLevelIndex] = useState<number>(0);
   const [givenResponses, setGivenResponses] = useState<GivenResponseModel[]>(
     []
@@ -34,41 +37,37 @@ export default function Home() {
   };
 
   useEffect(() => {
-    setGame(TUTORIAL_LEVEL_1);
-  }, []);
-
-  useEffect(() => {
-    if (game) {
+    if (currentGame) {
       const EMPTY_SCORE = {
         currentLevelIndex: 0,
-        game: game,
+        game: currentGame,
         givenResponses: [],
       };
     }
-  }, [game]);
+  }, [currentGame]);
 
   return (
     <div className="min-h-screen">
       <Head>
-        <title>{game?.levels[currentLevelIndex]?.title}</title>
+        <title>{currentGame?.levels[currentLevelIndex]?.title}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Navbar />
       <main>
-        {game?.levels[currentLevelIndex]?.content?.type === "explanation" && (
+        {currentGame?.levels[currentLevelIndex]?.content?.type === "explanation" && (
           <Explanation
-            level={game?.levels[currentLevelIndex]}
+            level={currentGame?.levels[currentLevelIndex]}
             onGoFurther={onGoFurther}
           />
         )}
-        {game?.levels[currentLevelIndex]?.content?.type === "quiz" && (
+        {currentGame?.levels[currentLevelIndex]?.content?.type === "quiz" && (
           <Quiz
-            level={game?.levels[currentLevelIndex]}
+            level={currentGame?.levels[currentLevelIndex]}
             onGoFurther={onGoFurther}
           />
         )}
-        {game && currentLevelIndex >= game.levels.length && (
-          <Score game={game} givenResponses={givenResponses} />
+        {currentGame && currentLevelIndex >= currentGame.levels.length && (
+          <Score game={currentGame} givenResponses={givenResponses} />
         )}
       </main>
     </div>

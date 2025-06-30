@@ -10,7 +10,7 @@ import usePaulix from "@/app/assets/pauli-x-use.png";
 import paulixOverPaulizOver1 from "@/app/assets/x-over-z-over-1.png";
 
 export const TUTORIAL_LEVEL_1: GameModel = {
-  title: "Básico",
+  title: "Básico 1",
   description: "Familiarização com conceitos de computação quântica",
   levels: [
     {

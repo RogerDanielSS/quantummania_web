@@ -4,9 +4,9 @@ import qugateApplication from "@/app/assets/qugate_application .png";
 import usePauliZ from "@/app/assets/use-pauli-z.png";
 import useHadamard from "@/app/assets/use-hadamard.png";
 
-export const TUTORIAL_LEVEL_1: GameModel = {
-  title: "Básico",
-  description: "Familiarização com conceitos de computação quântica",
+export const TUTORIAL_LEVEL_2: GameModel = {
+  title: "Básico 2",
+  description: "Aprofundamento em alguns conceitos de computação quântica",
   levels: [
     {
       title: "Interferência",

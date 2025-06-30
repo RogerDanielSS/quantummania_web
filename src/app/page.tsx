@@ -14,8 +14,15 @@ import {
   TeamSection,
 } from "./styles";
 import { TUTORIAL_LEVEL_1 } from "./constants/tutorial_level_1";
+import { GameContext } from "./contexts";
+import { useContext, useState } from "react";
+import { TUTORIAL_LEVEL_2 } from "./constants/tutorial_level_2";
+import { GameModel } from "./models";
 
 export default function Home() {
+  const { setCurrentGame, currentGame } = useContext(GameContext);
+  console.log(currentGame);
+
   return (
     <>
       <HeroSection>
@@ -33,24 +40,30 @@ export default function Home() {
         </div>
         <TutorialSection>
           <CardsContainer>
-            <Link href="/gameplay">
+            <Link
+              href="/gameplay"
+              onClick={(): void => setCurrentGame!(TUTORIAL_LEVEL_1)}
+            >
               <Card
                 numeroCard="01"
-                nivelCard="Básico"
+                nivelCard={TUTORIAL_LEVEL_1.title}
                 descricaoCard={TUTORIAL_LEVEL_1.description}
               />
             </Link>
-            <Link href="/gameplay">
+            <Link
+              href="/gameplay"
+              onClick={(): void => setCurrentGame!(TUTORIAL_LEVEL_2)}
+            >
               <Card
                 numeroCard="02"
-                nivelCard="Básico"
-                descricaoCard={TUTORIAL_LEVEL_1.description}
+                nivelCard={TUTORIAL_LEVEL_2.title}
+                descricaoCard={TUTORIAL_LEVEL_2.description}
               />
             </Link>
             <Link href="/gameplay">
               <Card
                 numeroCard="03"
-                nivelCard="Básico"
+                nivelCard={TUTORIAL_LEVEL_1.title}
                 descricaoCard={TUTORIAL_LEVEL_1.description}
               />
             </Link>
