@@ -13,8 +13,8 @@ export default function RootLayout({
   const [game, setGame] = useState<GameModel>();
 
   return (
-    <html lang="en">
-      <body className={`antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`antialiased`} suppressHydrationWarning={true}>
         <GameContext.Provider
           value={{
             setCurrentGame: setGame,

@@ -11,20 +11,35 @@ import ResponsesHeader from "./ResponsesHeader/responsesHeader";
 import { Container, CorrectAnswerRate, Header, Title } from "./styles";
 
 interface ScoreProps {
-  givenResponses: GivenResponseModel[]; // Make it optional if it can be undefined
-  game: GameModel;
+  givenResponses: GivenResponseModel[];
+  game: any;
 }
 
 export default function Score({ givenResponses, game }: ScoreProps) {
+  // Filtra apenas as fases do tipo "quiz"
+  const quizPhases =
+    game?.phases?.filter((phase: any) => phase.type === "quiz") || [];
+
+  // Garante que todas as fases do tipo quiz estejam representadas no score
+  const allQuizResponses = quizPhases.map((phase: any, idx: number) => {
+    // Busca o index real da fase no array original
+    const realIndex = game.phases.findIndex((p: any) => p.id === phase.id);
+    const resp = givenResponses.find((r) => r.levelIndex === realIndex);
+    return (
+      resp || {
+        levelIndex: realIndex,
+        reponse: null,
+      }
+    );
+  });
+
   const getScore = (): string => {
-    const rightResponses = givenResponses.filter(
+    const rightResponses = allQuizResponses.filter(
       (givenResponse) =>
         givenResponse.reponse ===
-        (game.levels[givenResponse.levelIndex].content as QuizModel)
-          .correct_response
+        (game.phases[givenResponse.levelIndex]?.correctResponse ?? null)
     );
-
-    return `${rightResponses.length} / ${givenResponses.length}`;
+    return `${rightResponses.length} / ${allQuizResponses.length}`;
   };
 
   return (
@@ -35,11 +50,11 @@ export default function Score({ givenResponses, game }: ScoreProps) {
       </Header>
 
       <ResponsesHeader />
-      {givenResponses.map((givenResponse, index) => (
+      {allQuizResponses.map((givenResponse, index) => (
         <Response
           key={index}
           responseIndex={index}
-          level={game?.levels[givenResponse.levelIndex]}
+          level={game?.phases[givenResponse.levelIndex]}
           givenResponse={givenResponse}
         />
       ))}

@@ -27,14 +27,11 @@ export default function Response({
       <Container
         onClick={toggleShowQuiz}
         $correctResponse={
-          (level?.content as QuizModel).correct_response ===
-          givenResponse.reponse
+          (level as any).correctResponse === givenResponse.reponse
         }
       >
         <CenteredDiv>Q{responseIndex + 1}</CenteredDiv>
-        <CenteredDiv>
-          {(level?.content as QuizModel).correct_response}
-        </CenteredDiv>
+        <CenteredDiv>{(level as any).correctResponse}</CenteredDiv>
         <CenteredDiv>{givenResponse.reponse}</CenteredDiv>
       </Container>
       {showQuiz && (
@@ -44,11 +41,9 @@ export default function Response({
             showRightResponse
             preSettedGivenResponse={givenResponse.reponse}
           />
-          {(level?.content as QuizModel)?.response_justification && (
+          {(level as any)?.responseJustification && (
             <ResponseJustification
-              justification={
-                (level?.content as QuizModel)?.response_justification
-              }
+              justification={(level as any)?.responseJustification}
             />
           )}
         </>
