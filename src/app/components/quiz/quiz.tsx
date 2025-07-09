@@ -18,15 +18,19 @@ import {
 } from "./styles";
 
 interface QuizProps {
+  index: number;
   onGoFurther?: (givenResponse: string) => void;
+  onGoBack: () => void;
   level?: LevelModel;
   showRightResponse?: boolean;
   preSettedGivenResponse?: string;
 }
 
 export default function Quiz({
+  index,
   level,
   onGoFurther,
+  onGoBack,
   showRightResponse,
   preSettedGivenResponse,
 }: QuizProps) {
@@ -98,8 +102,21 @@ export default function Quiz({
         </AnswersContainer>
       </QuizCard>
 
-      {!showRightResponse && onGoFurther && (
-        <NextButtonContainer>
+      <NextButtonContainer justify_end={index === 0 ? true : false}>
+        {!showRightResponse && index !== 0 && (
+          <NextButton
+            onClick={(): void => {
+              if (givenResponse !== null) {
+                setGivenResponse(null);
+              }
+              onGoBack();
+            }}
+          >
+            Voltar
+          </NextButton>
+        )}
+
+        {!showRightResponse && onGoFurther && (
           <NextButton
             disabled={givenResponse === null}
             onClick={(): void => {
@@ -111,8 +128,8 @@ export default function Quiz({
           >
             Avançar
           </NextButton>
-        </NextButtonContainer>
-      )}
+        )}
+      </NextButtonContainer>
     </QuizContainer>
   );
 }

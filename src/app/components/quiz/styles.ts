@@ -118,13 +118,33 @@ export const ExplicitResponseDiv = styled.div<ExplicitResponseDivProps>`
   font-size: 1rem;
 `;
 
-export const NextButtonContainer = styled.div`
+export const NextButtonContainer = styled.div<{ justify_end: boolean }>`
   display: flex;
-  justify-content: flex-end;
+  justify-content: ${({ justify_end }) => justify_end ? 'flex-end' : 'space-between'};
 `;
 
 export const NextButton = styled.button`
   background-color: rgb(22 163 74);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  transition: opacity 0.2s ease;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    opacity: 0.9;
+  }
+`;
+
+export const BackButton = styled.button`
+  background-color: #aaaa00;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 24px;

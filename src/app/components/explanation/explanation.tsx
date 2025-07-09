@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ExplanationModel, LevelModel } from "../../models";
 import {
+  BackButton,
   ButtonContainer,
   ContentCard,
   ExplanationContainer,
@@ -14,11 +15,18 @@ import {
 } from "./styles";
 
 interface ExplanationProps {
+  index: number;
   onGoFurther: () => void;
+  onGoBack: () => void;
   level: LevelModel; // Make it optional if it can be undefined
 }
 
-export default function Explanation({ level, onGoFurther }: ExplanationProps) {
+export default function Explanation({
+  index,
+  level,
+  onGoFurther,
+  onGoBack,
+}: ExplanationProps) {
   return (
     <ExplanationContainer>
       <Header>
@@ -86,7 +94,10 @@ export default function Explanation({ level, onGoFurther }: ExplanationProps) {
         </TextContent>
       </ContentCard>
 
-      <ButtonContainer>
+      <ButtonContainer justify_end={index === 0 ? true : false}>
+        {index !== 0 && (
+          <BackButton onClick={(): void => onGoBack()}>Voltar</BackButton>
+        )}
         <NextButton onClick={(): void => onGoFurther()}>Avançar</NextButton>
       </ButtonContainer>
     </ExplanationContainer>

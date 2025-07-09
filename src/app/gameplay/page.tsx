@@ -54,16 +54,21 @@ export default function Home() {
       </Head>
       <Navbar />
       <main>
-        {currentGame?.levels[currentLevelIndex]?.content?.type === "explanation" && (
+        {currentGame?.levels[currentLevelIndex]?.content?.type ===
+          "explanation" && (
           <Explanation
+            index={currentLevelIndex}
             level={currentGame?.levels[currentLevelIndex]}
             onGoFurther={onGoFurther}
+            onGoBack={onGoBack}
           />
         )}
         {currentGame?.levels[currentLevelIndex]?.content?.type === "quiz" && (
           <Quiz
+            index={currentLevelIndex}
             level={currentGame?.levels[currentLevelIndex]}
             onGoFurther={onGoFurther}
+            onGoBack={onGoBack}
           />
         )}
         {currentGame && currentLevelIndex >= currentGame.levels.length && (
